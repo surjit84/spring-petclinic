@@ -16,7 +16,8 @@ pipeline{
                  } else {
                     bat 'mvn clean compile' 
                  }
-            }           
+            }  
+        }    
             
         stage('Test'){
             steps{
