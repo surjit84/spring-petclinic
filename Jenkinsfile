@@ -11,12 +11,8 @@ pipeline{
         }
         stage('Build'){
             steps{
-                 if (isUnix()) {
-                    sh 'mvn clean compile' 
-                 } else {
-                    bat 'mvn clean compile' 
+                   bat 'mvn clean compile' 
                  }
-            }  
         }    
             
         stage('Test'){
