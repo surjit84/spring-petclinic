@@ -13,6 +13,12 @@ pipeline{
             steps{
                    bat 'mvn clean compile' 
                  }
-        }    
+        }  
+        stage('Test'){
+            steps{
+                     bat 'mvn test'
+                     junit '**/target/surefire-reports/TEST-*.xml'
+            }
+        }
     }
 } 
