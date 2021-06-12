@@ -31,7 +31,15 @@ pipeline{
                 sh 'mvn verify'
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])     
                 }
-        }   
+        } 
+         stage('Deploy'){
+            steps{
+                    
+		sh "docker build . -t anjurose/petclinic"
+		sh "docker run -d -p 8087:8080 anjurose/petclinic"
+                    
+            }
+        }
     }
 }
 
